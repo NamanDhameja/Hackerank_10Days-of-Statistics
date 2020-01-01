@@ -1,0 +1,77 @@
+Task 1:Quartiles
+Given an array,X ,n of integers, calculate the respective first quartile (Q1), second quartile (Q2), and third quartile (Q3). It is guaranteed that , , and
+are integers.
+--------------------------
+Input Format:
+
+The first line contains an integer,n, denoting the number of elements in the array.
+The second line contains n space-separated integers describing the array's elements.
+-----------------------------
+Solution: 
+import statistics
+size=int(input())
+X=list(map(int,input().split(' ')))
+X.sort()
+X2=X[:int(size/2)]
+if(size%2==0):
+    X3=X[int(size/2):]
+else:
+    X3=X[int(size/2+1):]
+print(int(statistics.median(X2)))
+print(int(statistics.median(X)))
+print(int(statistics.median(X3)))
+------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------
+Task2:Interquaritile Range
+The interquartile range of an array is the difference between its first (Q1) and third (Q3) quartiles (i.e.,Q3-Q2).
+Given an array,X,n of integers and an array, F, representing the respective frequencies of X's elements, construct a data set, S, where each xi occurs at frequency fi. Then calculate and print S's interquartile range, rounded to a scale of 1 decimal place (i.e.,12.3 format).
+Tip: Be careful to not use integer division when averaging the middle two elements for a data set with an even number of elements, and be sure to not include the median in your upper and lower data sets.
+------------
+Input Format:
+The first line contains an integer,n, denoting the number of elements in arrays X and F .
+The second line contains n space-separated integers describing the respective elements of array X.
+The third line contains n space-separated integers describing the respective elements of array F. 
+------------------------
+Solution:
+import itertools
+import statistics
+size=int(input())
+X=list(map(int,input().split(' ')))
+Y=list(map(int,input().split(' ')))
+S=list(itertools.chain.from_iterable(itertools.repeat(X[i],Y[i])for i in range(size)))
+S.sort()
+size=0
+for i in Y:
+    size+=Y[i]
+S1=S[:int(size/2)]
+if(size%2==0):
+    S2=S[int(size/2):]
+else:
+    S2=S[int(size/2+1):]
+    
+print(S1)
+print(S2)
+itr=statistics.mean(S2)-statistics.mean(S1)
+print(itr)
+-------------------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------------------
+Task 3: 
+Given an array,X,of N integers, calculate and print the standard deviation.
+Solution:
+import statistics
+import math
+size=int(input())
+sum=0
+X=list(map(int,input().split(' ')))
+X.sort()
+mu=statistics.mean(X)
+for i in range(size):
+    sum=sum+((X[i]-mu)**2)
+print(math.sqrt(sum/size))
+------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------
+
+
+
+
+
