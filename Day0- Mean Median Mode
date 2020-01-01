@@ -1,0 +1,48 @@
+Day0- Mean, Median,Mode 
+First problem:
+Task:
+Given an array,X, of N integers, calculate and print the the respective mean, median, and mode onseparate lines. If your array contains more than one modal value, choose the numerically smallest one.
+------------------
+Input Format:
+The first line contains an integer, N, denoting the number of elements in the array. The second line contains N space-separated integers describing the array's elements.
+-----------------------------
+Solution:
+import statistics 
+from scipy import stats
+n=int(input())
+X=list(map(int,input().split(' ')))
+print(round(statistics.mean(X),1))
+print(round(statistics.median(X),1))
+print(int(stats.mode(X)[0]))# stats cuz statistics does not work in mode with same no. of values
+     
+#import numpy as np
+#from scipy import stats
+
+#size = int(input())
+#numbers = list(map(int, input().split()))
+#print(np.mean(numbers))
+#print(np.median(numbers))
+#print(int(stats.mode(numbers)[0]))
+--------------------------------------------------------------------------------------------------------
+
+Second Problem:
+Task:
+Given an array,X , N of integers and an array, W, representing the respective weights of X's elements, calculate and print the weighted mean of X's elements. Your answer should be rounded to a scale of 1 decimal place (i.e.,
+format).
+--------------------
+Input Format:
+
+The first line contains an integer,N, denoting the number of elements in arrays X and W.
+The second line contains N space-separated integers describing the respective elements of array X.
+The third line contains N space-separated integers describing the respective elements of array W.
+------------------------
+Solution:
+size=int(input())
+X=list(map(int, input().split()))
+W=list(map(int, input().split()))
+#print(np.average(X,weights=W))
+for g in range(len(X)):
+   X[g] = X[g] * W[g] / sum(W)
+X =round(sum(X),1)
+print(X)
+--------------------------------------------------
