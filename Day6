@@ -1,0 +1,33 @@
+Task I: The Central Limit Theorem I -
+Solution: 
+import math
+def cumulative(mean, std, value):
+    return 0.5 * (1 + math.erf((value - mean) / (std * (2 ** 0.5))))
+max_weight = float(input())
+n = float(input())
+mean = float(input()) * n
+std = math.sqrt(n) * float(input())
+print (round(cumulative(mean, std, max_weight),4))
+---------------------------------------------------------------------------------------------------------
+Task II: The Central limit Theorem II -
+Solution: 
+import math
+def cumulative(mean, std, value):
+    return 0.5 * (1 + math.erf((value - mean) / (std * (2 ** 0.5))))
+max_weight = float(input())
+n = float(input())
+mean = float(input()) * n
+std = math.sqrt(n) * float(input())
+print (round(cumulative(mean, std, max_weight),4))
+--------------------------------------------------------------------------------------------------------
+Task III: The central Limit theorem III - 
+Solution: 
+n = float(input())
+mean = float(input())
+std = float(input())
+percent_ci = float(input())
+ci = float(input()) * (std / (n**0.5)) 
+print(round(mean - ci, 2))
+print(round(mean + ci, 2))
+------------------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------------------
