@@ -1,0 +1,43 @@
+Day 5: -----
+Task I- Poisson Distribution I-
+A random variable,X, follows Poisson distribution with mean of 2.5. Find the probability with which the random variable X is equal to 5.
+----------------------------------------
+Solution:
+----------------------------------------
+import math
+mean = float(input()) #mean input
+k = float(input()) #random variable X's
+e = 2.71828 
+result = ((mean ** k) * (e ** -mean)) / math.factorial(k) 
+print(round(result, 3))
+------------------------------------------------------------------------------------------------------------------------------
+
+Task II- Poisson Distribution II --------------
+ Solution: 
+a,b= list(map(float, input().split(' ')))
+print (round(160 + 40 * (a + a ** 2), 3))
+print (round(128 + 40 * (b + b ** 2), 3))
+-----------------------------------------------------------------------------------------------------------------------------
+Task III- Normal Distribution I ---------------
+Solution:
+import math
+def cumulative(mean, std, value):
+    return 0.5 * (1 + math.erf((value - mean) / (std * (2 ** 0.5))))
+mean,std = list(map(float, input().split()))
+less_period = float(input())
+low,up = list(map(float, input().split()))
+print (round(cumulative(mean, std, less_period),3))
+print (round(cumulative(mean, std,up) - cumulative(mean, std,low), 3))
+------------------------------------------------------------------------------------------------------------------------------
+Task IV - Normal distribution II -----------
+Solution: 
+import math
+def cumulative(mean, std, value):
+    return 0.5 * (1 + math.erf((value - mean) / (std * (2 ** 0.5))))
+mean,std = list(map(float, input().split()))
+q1 = float(input())
+q2= float(input())
+print (round(100 - (cumulative(mean, std, q1) * 100), 2))
+print (round(100 - (cumulative(mean, std, q2) * 100), 2))
+print (round(cumulative(mean, std, q2) * 100, 2))
+-----------------------------------------------------------------------------------------------------------------------------
