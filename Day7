@@ -1,0 +1,45 @@
+Task I- Pearson Correlation Coefficient I
+Solution:
+import statistics as st
+def cc(n, dt_x, dt_y):
+    mean_x = st.mean(dt_x)
+    mean_y = st.mean(dt_y)
+    std_x = st.pstdev(dt_x)
+    std_y = st.pstdev(dt_y)
+    c = 0
+    for i in range(n):
+        c = c + (dt_x[i] - mean_x) * (dt_y[i] - mean_y)
+    return c / (n * std_x * std_y)
+n = int(float(input()))
+dx = list(map(float, input().split()))
+dy = list(map(float, input().split()))
+print (round(cc(n, dx, dy), 3))
+---------------------------------------------------------------------------------------------------------------------
+Task II - Spearman's Rank Correlation Coefficient
+Solution-
+def rank(dt):
+    rank = {}
+    sort = sorted(dt)
+    for i in range(len(dt)):
+        for j in range(len(sort)):
+            if dt[i] == sort[j]:
+                rank[dt[i]] = j + 1
+    return rank
+
+def spearman(x, y, rx, ry, n):
+    diff_rank = 0
+    for i in range(n):
+        if rx[x[i]] != ry[y[i]]:
+            diff_rank = diff_rank + ((rx[x[i]] - ry[y[i]]) ** 2)
+    return (6 * diff_rank) / (n ** 3 - n)
+
+n = int(float(input()))
+dx = list(map(float, input().split()))
+dy = list(map(float, input().split()))
+rx = rank(dx)
+ry = rank(dy)
+
+# Gets the result and show on the screen
+s = spearman(dx, dy, rx, ry, n)
+print(round(1 - s, 3))
+----------------------------------------------------------------------------------------
